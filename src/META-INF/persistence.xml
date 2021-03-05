@@ -3,6 +3,7 @@
 	<persistence-unit name="ConsoleSportsCarList" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.ListItem</class>
+		<class>model.Owner</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.cklf7lmatroh.us-east-1.rds.amazonaws.com/sportscars"/>

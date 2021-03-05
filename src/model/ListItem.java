@@ -23,6 +23,10 @@ public class ListItem {
 	
 	@Column(name="YEAR")
 	private String year;
+
+	@Column(name="OWNERID")
+	private int ownerId;
+	
 	
 	//default no-arg constructor
 	public ListItem (){
@@ -30,11 +34,12 @@ public class ListItem {
 	}
 	
 	//constructor that accepts a make, model and year
-	public ListItem(String make, String model, String year) {
+	public ListItem(String make, String model, String year, int ownerId) {
 		super();
 		this.make = make;
 		this.model = model;
 		this.year = year;
+		this.ownerId = ownerId;
 	}
 
 	//getters and setters
@@ -69,6 +74,15 @@ public class ListItem {
 	public void setYear(String year) {
 		this.year = year;
 	}
+	
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
 
 	//returnItemDetails method
 	

@@ -8,35 +8,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ListItem;
+import model.Owner;
 
 /**
- * Servlet implementation class AddItemServlet
+ * Servlet implementation class addOwnerServlet
  */
-@WebServlet("/addItemServlet")
-public class AddItemServlet extends HttpServlet {
+@WebServlet("/addOwnerServlet")
+public class addOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public AddItemServlet() {
+    public addOwnerServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String make = request.getParameter("make");
-		String model = request.getParameter("model");
-		String year = request.getParameter("year");
-		int ownerId = Integer.parseInt(request.getParameter("ownerId"));
 		
-		ListItem li = new ListItem(make, model, year, ownerId);
-		LIHelper dao = new LIHelper();
-		dao.insertItem(li);
+		String name = request.getParameter("name");
+		
+		Owner o = new Owner(name);
+		OwnerHelper dao = new OwnerHelper();
+		dao.insertItem(o);
 		
 		getServletContext().getRequestDispatcher("/index").forward(request, response);
+		
 	}
 
 }
