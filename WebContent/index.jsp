@@ -4,15 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <script src="validation.js"></script> 
 <meta charset="ISO-8859-1">
 <title>Sports Car Club - Home Page</title>
 </head>
 <body>
 
-<form action="addItemServlet" method="post">
-Make: <input type ="text" name = "make">
-Model: <input type = "text" name = "model">
-Year: <input type = "text" name = "year">
+<form action="addItemServlet" method="post" onsubmit="return checkItemForm()">
+Make: <input type ="text" name = "make" id="make">
+Model: <input type = "text" name = "model" id="model">
+Year: <input type = "text" name = "year" id="year">
 Owner:
 <select name = "ownerId" id = "ownerId">
 <c:forEach items="${requestScope.allOwners}" var="currentOwner">
@@ -22,8 +23,8 @@ Owner:
 <input type = "submit" value="Add Item">
 </form><br />
 
-<form action="addOwnerServlet" method="post">
-Name: <input type ="text" name = "name">
+<form action="addOwnerServlet" method="post" onsubmit="return checkOwnerForm()">
+Name: <input type ="text" name = "name" id="name">
 <input type = "submit" value="Add Owner">
 </form><br />
 
